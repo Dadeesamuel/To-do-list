@@ -133,11 +133,28 @@ function displayListDetails(taskToDisplay) {
     todoList.html(htmlForListInfo);
   }
   
+  function showList(listId) {
+    const list = task.findList(listId);
+    $("#show-contact").show();
+    $(".task").html(list.task );
+    $(".date").html(list.date);
+    $(".time").html(list.time);
+    let buttons = $("#buttons");
+    buttons.empty();
+    buttons.append("<button class='deleteButton' id=" +  + contact.id + ">Delete</button>");
+  }
+
 
 function attachListListeners() {
     $("ul#todo-list").on("click", "li", function() {
       showList(this.id);     // <--- This is new!
     });
+    $("#buttons").on("click", ".deleteButton", function() {
+        task.deleteList(this.id);
+        $("#show-list").hide();
+        displayListDetails(task);
+      });
+    
   }
   
 $(document).ready(function() {
@@ -146,6 +163,11 @@ $(document).ready(function() {
     const inputtedTask = $("input#task").val();
     const inputtedDate = $("input#date").val();
     const inputtedTime = $("input#time").val();
+
+    $("input#task").val("");
+    $("input#date").val("");
+    $("input#time").val("");
+
     let newList = new Lists(inputtedTask, inputtedDate, inputtedTime);
 
     task.addList(newList);
