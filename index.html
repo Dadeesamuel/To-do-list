@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,43 +9,45 @@
     <script src="js/jquery-3.6.4.js"></script>
     <script src="js/scripts.js"></script>
     <title>To do List</title>
-        
+
 </head>
+
 <body>
     <div class="container">
         <h1 class="heading">TO DO LIST</h1>
         <ul id="todo-list"></ul>
-        <div class="btn-container">
+        <div class="btn-container" id="show-contact">
             <input type="text" id="new-task" placeholder="New task">
             <button class="add-btn" onclick="addTask()">Add</button>
             <button class="clear-btn" onclick="clearTasks()">Clear All</button>
         </div>
     </div>
-   <footer>
-    <p> footer</p>
-   </footer>
 
 
-   <div class="container">
-    <h3 class="center">ToDoList</h3>
-    <div class="form-group">
-        <label for="Daily Task">Daily Task</label><br><br>
-        <input type="text" id="" placeholder="Daily" class="form-control"><br>
-        <label for="Date">Date</label><br><br>
-        <input type="date" name="" id="" placeholder="Exalt date" class="form-control"><br>
-        <label for="Time">Time</label><br><br>
-        <input type="time" name="" id="" placeholder="Exalt time" class="form-control"><br>
 
-        <button class="btn-success">Create</button>
-        <button class="btn-danger">Clear</button>
+    <div class="container">
+        <h3 class="center">ToDoList</h3>
+        <form id="new-list">
+            <div class="form-group">
+                <label for="Daily Task">Daily Task</label><br><br>
+                <input type="text" id="task" placeholder="Daily Task" class="form-control"><br>
+                <label for="Date">Date</label><br><br>
+                <input type="date" name="date" id="date" placeholder="Exalt date" class="form-control"><br>
+                <label for="Time">Time</label><br><br>
+                <input type="time" name="time" id="time" placeholder="Exalt time" class="form-control"><br>
 
+                <button type="submit" class="btn-success">Create</button>
+                <button type="reset" class="btn-danger">Clear</button>
+            </div>
+        </form>
     </div>
 
-   </div>
 
 
-
-
+    <footer>
+        <p> footer</p>
+    </footer>
 
 </body>
+
 </html>
