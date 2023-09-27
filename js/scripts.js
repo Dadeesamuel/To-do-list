@@ -95,7 +95,7 @@ function Task() {
   };
 
   
-Task.prototype.findlist = function(id) {
+Task.prototype.findList = function(id) {
     if (this.lists[id] != undefined) {
       return this.lists[id];
     }
@@ -110,22 +110,33 @@ Task.prototype.findlist = function(id) {
     return true;
   };
   // Business Logic for List ---------
-function Lists(title, time, description) {
-    this.title = title;
+function Lists(task, date, time) {
+    this.task =task;
+    this.date = date;
     this.time = time;
-    this.description = description;
   }
   Lists.prototype.taskTime = function () {
-    return this.title + "     " + this.time;
+    return this.task + " " + this.date + " " + this.time;
   };
 
   
 
   // User Interface Logic ---------
 let task = new Task();
-function attachContactListeners() {
+function displayListDetails(taskToDisplay) {
+    let todoList = $("ul#todo-list");
+    let htmlForListInfo = "";
+    Object.keys(taskToDisplay.lists).forEach(function(key) {
+      const list = taskToDisplay.findList(key);
+      htmlForListInfo += "<li id=" + list.id + ">" + list.task + " " + list.date + " " + list.time +"</li>";
+    });
+    todoList.html(htmlForListInfo);
+  }
+  
+
+function attachListListeners() {
     $("ul#todo-list").on("click", "li", function() {
-      showContact(this.id);     // <--- This is new!
+      showList(this.id);     // <--- This is new!
     });
   }
   
@@ -138,7 +149,8 @@ $(document).ready(function() {
     let newList = new Lists(inputtedTask, inputtedDate, inputtedTime);
 
     task.addList(newList);
-    console.log(task.lists);date
+    displayListDetails(task);
+    console.log(task.lists);
 
     
   });

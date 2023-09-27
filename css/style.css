@@ -53,3 +53,6 @@ li span {
     background-color: #F44336;
     color: #fff;
 }
+#show-contact{
+    display: none;
+}

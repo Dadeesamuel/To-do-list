@@ -16,13 +16,14 @@
     <div class="container">
         <h1 class="heading">TO DO LIST</h1>
         <ul id="todo-list"></ul>
-        <div class="btn-container" id="show-contact">
-            <input type="text" id="new-task" placeholder="New task">
-            <button class="add-btn" onclick="addTask()">Add</button>
-            <button class="clear-btn" onclick="clearTasks()">Clear All</button>
-        </div>
-    </div>
 
+       <div id="show-contact">
+         <p>Task: <span class="task"></span></p>
+         <p>Date: <span class="date"></span></p>
+         <p>Time: <span class="time"></span></p>
+         <div id="buttons"> </div>
+       </div>
+    </div>
 
 
     <div class="container">
@@ -35,9 +36,10 @@
                 <input type="date" name="date" id="date" placeholder="Exalt date" class="form-control"><br>
                 <label for="Time">Time</label><br><br>
                 <input type="time" name="time" id="time" placeholder="Exalt time" class="form-control"><br>
-
-                <button type="submit" class="btn-success">Create</button>
-                <button type="reset" class="btn-danger">Clear</button>
+              <div class="text-center">
+                <button type="submit" class="btn-success btn">Create</button>
+                <button type="reset" class="btn-danger btn">Clear</button>
+              </div>
             </div>
         </form>
     </div>
