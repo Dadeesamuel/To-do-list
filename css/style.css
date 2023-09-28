@@ -23,6 +23,7 @@ ul {
     padding: 0;
 }
 li {
+    cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -49,10 +50,25 @@ li span {
     background-color: #4CAF50;
     color: #fff;
 }
-.btn-container button.clear-btn {
-    background-color: #F44336;
+.btn-container button.clear-btn{
+    background-color: #f01506;
     color: #fff;
 }
 #show-contact{
     display: none;
+}
+.deleteButton {
+    background-color: #d41305;
+    color: #fff;
+    font-size: 12px;
+}
+.viewButton {
+    background-color: green;
+    color: #fff;
+    font-size: 10px;
+}
+.daily-task{
+    color: #f01506;
+    font-family: cursive;
+    font-weight: bolder;
 }

@@ -128,20 +128,20 @@ function displayListDetails(taskToDisplay) {
     let htmlForListInfo = "";
     Object.keys(taskToDisplay.lists).forEach(function(key) {
       const list = taskToDisplay.findList(key);
-      htmlForListInfo += "<li id=" + list.id + ">" + list.task + " " + list.date + " " + list.time +"</li>";
+      htmlForListInfo += "<li id=" + list.id + ">" + list.id +"."+ " " + list.task + " " + list.date + " " + list.time +" <button class='viewButton btn'>View</button> </li>";
     });
     todoList.html(htmlForListInfo);
   }
   
   function showList(listId) {
     const list = task.findList(listId);
-    $("#show-contact").show();
+    $("#show-contact").toggle();
     $(".task").html(list.task );
     $(".date").html(list.date);
     $(".time").html(list.time);
     let buttons = $("#buttons");
     buttons.empty();
-    buttons.append("<button class='deleteButton' id=" +  + contact.id + ">Delete</button>");
+    buttons.append("<button class='deleteButton btn' id=" + list.id + ">Done</button>");
   }
 
 
@@ -151,13 +151,14 @@ function attachListListeners() {
     });
     $("#buttons").on("click", ".deleteButton", function() {
         task.deleteList(this.id);
-        $("#show-list").hide();
+        $("#show-contact").hide();
         displayListDetails(task);
       });
     
   }
   
 $(document).ready(function() {
+  attachListListeners();
   $("form#new-list").submit(function(event) {
     event.preventDefault();
     const inputtedTask = $("input#task").val();
@@ -167,6 +168,8 @@ $(document).ready(function() {
     $("input#task").val("");
     $("input#date").val("");
     $("input#time").val("");
+
+    
 
     let newList = new Lists(inputtedTask, inputtedDate, inputtedTime);
 
