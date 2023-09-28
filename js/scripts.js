@@ -128,7 +128,7 @@ function displayListDetails(taskToDisplay) {
     let htmlForListInfo = "";
     Object.keys(taskToDisplay.lists).forEach(function(key) {
       const list = taskToDisplay.findList(key);
-      htmlForListInfo += "<li id=" + list.id + ">" + list.id +"."+ " " + list.task + " " + list.date + " " + list.time +" <button class='viewButton btn'>View</button> </li>";
+      htmlForListInfo += "<li id=" + list.id + ">" + list.id +"."+ " " + list.task + "   " + list.date + "   " + list.time +" <button class='viewButton btn'>View</button> </li>";
     });
     todoList.html(htmlForListInfo);
   }
